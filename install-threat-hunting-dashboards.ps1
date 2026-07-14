@@ -21,6 +21,6 @@ try {
   $result = docker exec $Manager sh -c "curl -ksS -u '$DashboardUser`:$DashboardPassword' -H 'osd-xsrf: true' --form file=@/tmp/threat-hunting.ndjson 'https://wazuh.dashboard:5601/api/saved_objects/_import?overwrite=true'"
   $import = $result | ConvertFrom-Json
   if (-not $import.success) { throw "Dashboard import failed: $result" }
-  Write-Host 'Installed: Purple Lab - Threat Detection and Purple Lab - Threat Investigation.' -ForegroundColor Green
+  Write-Host 'Installed: Purple Lab - Threat Detection, Threat Investigation, and Raw Log Discovery.' -ForegroundColor Green
 }
 finally { Pop-Location }

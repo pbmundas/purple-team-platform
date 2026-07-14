@@ -7,7 +7,8 @@ RUN if command -v dnf >/dev/null; then \
       && rm -rf /var/lib/apt/lists/*; \
     fi
 COPY agent-entrypoint.sh /usr/local/bin/purple-agent-entrypoint
-RUN chmod 0555 /usr/local/bin/purple-agent-entrypoint
+RUN sed -i 's/\r$//' /usr/local/bin/purple-agent-entrypoint \
+ && chmod 0555 /usr/local/bin/purple-agent-entrypoint
 ENTRYPOINT ["/usr/local/bin/purple-agent-entrypoint"]
 # Keep the image's original entrypoint and ossec.conf. Its supported
 # WAZUH_MANAGER/WAZUH_REGISTRATION_* environment variables register the agent
