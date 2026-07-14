@@ -111,7 +111,10 @@ Password: SecretPassword
 ```
 http://localhost:8888
 ```
-
+| Username | Password                                    |
+| -------- | ------------------------------------------- |
+| red      | ZtBdWbYBDL2dcPnaHOY6SVxsrXCIX2gDNrhxUExIO3I |
+| blue     | bzUQKv74fKgqj7LRJyX8pgfP-V7aMrvPMsqVzxaEiE4 |
 Retrieve the generated administrator credentials:
 
 ```powershell
