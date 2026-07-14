@@ -121,6 +121,22 @@ Retrieve the generated administrator credentials:
 docker logs purple-caldera
 ```
 
+The two Docker victims automatically reconnect their persistent Caldera
+Sandcat agents as `purplelin` and `purpleubu`. In CALDERA, retain those live
+agents; remove only historical dead rows with **Bulk Actions → Remove**.
+
+## Kali attacker workstation
+
+`purple-kali` is a separate attacker container on the isolated `purple-net`
+network. It is intentionally not a CALDERA agent and therefore will not appear
+on CALDERA's **Agents** screen. Use it for authorized lab-only reconnaissance
+and scenario execution:
+
+```powershell
+docker exec -it purple-kali bash
+nmap -sV linux-victim ubuntu-victim
+```
+
 ---
 
 ## Optional CALDERA Image Override

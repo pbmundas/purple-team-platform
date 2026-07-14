@@ -137,6 +137,12 @@ docker logs purple-caldera
 
 3. Log in, review the built-in training, then create only lab-scoped operations.
 
+The Linux and Ubuntu lab victims automatically maintain one persistent Sandcat
+agent each (`purplelin` and `purpleubu`) in the `red` group. They should show
+as **alive** shortly after the lab starts. If older container instances left
+dead agent rows behind, select only those dead rows and use **Bulk Actions →
+Remove**; do not remove the two live `purple*` agents.
+
 CALDERA is an emulation platform; it does not automatically compromise the Linux victim. Review each ability and payload before using it.
 
 ## 8. Add a Windows VM victim (optional)

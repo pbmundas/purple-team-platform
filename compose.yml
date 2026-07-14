@@ -53,12 +53,16 @@ services:
       WAZUH_REGISTRATION_SERVER: wazuh.manager
       WAZUH_AGENT_GROUP: default
       WAZUH_AGENT_NAME: linux-victim
+      CALDERA_SERVER: http://caldera:8888
+      CALDERA_GROUP: red
+      CALDERA_PAW: purplelin
     depends_on:
       wazuh.manager:
         condition: service_started
     networks: [purple-net]
     volumes:
       - suricata-logs:/var/log/suricata:ro
+      - linux-caldera-data:/opt/purple/caldera
     restart: unless-stopped
 
   ubuntu-victim:
@@ -70,12 +74,16 @@ services:
       WAZUH_REGISTRATION_SERVER: wazuh.manager
       WAZUH_AGENT_GROUP: default
       WAZUH_AGENT_NAME: ubuntu-victim
+      CALDERA_SERVER: http://caldera:8888
+      CALDERA_GROUP: red
+      CALDERA_PAW: purpleubu
     depends_on:
       wazuh.manager:
         condition: service_started
     networks: [purple-net]
     volumes:
       - ubuntu-victim-logs:/var/log
+      - ubuntu-caldera-data:/opt/purple/caldera
     restart: unless-stopped
 
   suricata:
@@ -98,5 +106,7 @@ networks:
 
 volumes:
   caldera-data:
+  linux-caldera-data:
   suricata-logs:
+  ubuntu-caldera-data:
   ubuntu-victim-logs:
