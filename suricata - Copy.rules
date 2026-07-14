@@ -1,2 +1,0 @@
-# Safe lab-only rule: recognize inbound TCP reconnaissance to the Linux victim.
-alert tcp any any -> $HOME_NET any (msg:"PURPLE LAB TCP reconnaissance"; flags:S; flow:stateless; sid:9000001; rev:1; classtype:attempted-recon;)
