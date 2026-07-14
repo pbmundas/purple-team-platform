@@ -1,0 +1,30 @@
+<group name="purple_team,">
+  <rule id="100100" level="10">
+    <decoded_as>json</decoded_as>
+    <field name="event_type">alert</field>
+    <description>Suricata alert observed in Purple Team lab</description>
+    <group>ids,suricata,purple_team,</group>
+  </rule>
+  <rule id="100101" level="8">
+    <if_group>syscheck</if_group>
+    <match>/usr/bin</match>
+    <description>Purple lab: executable integrity change</description>
+    <group>syscheck,purple_team,</group>
+  </rule>
+  <rule id="100102" level="3">
+    <match>purple-team-wazuh-test</match>
+    <description>Purple lab: agent log delivery test</description>
+    <group>purple_team,</group>
+  </rule>
+  <rule id="100103" level="10">
+    <match>purple-lab-rehearsal</match>
+    <description>Purple lab: high-severity rehearsal detection</description>
+    <group>purple_team,threat_hunt,</group>
+  </rule>
+  <rule id="100104" level="8">
+    <if_sid>31101</if_sid>
+    <match>purple-lab-probe</match>
+    <description>Purple lab: tagged web-probe activity observed</description>
+    <group>purple_team,web_probe,</group>
+  </rule>
+</group>
